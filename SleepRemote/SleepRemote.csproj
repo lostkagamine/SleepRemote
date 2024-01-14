@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>dotnet-SleepRemote-724292AE-79B4-4D2F-B5D7-FCA6AB152746</UserSecretsId>
+        <OutputType>exe</OutputType>
+        <PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+        <PlatformTarget>x64</PlatformTarget>
+        
+        <!-- We *have* to enable server GC, otherwise we'll get a memory leak. Nobody wants that. ~Homura -->
+        <ServerGarbageCollection>true</ServerGarbageCollection>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="EmbedIO" Version="3.5.2" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="8.0.0" />
+    </ItemGroup>
+</Project>
